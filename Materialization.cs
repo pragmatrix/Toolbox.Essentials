@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Toolbox
 {
-	public interface IMaterialized<ElementT> : IEnumerable<ElementT>
+	public interface IMaterialized<out ElementT> : IEnumerable<ElementT>
 	{
 	}
 
