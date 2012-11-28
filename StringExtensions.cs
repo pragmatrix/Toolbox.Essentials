@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Toolbox
 {
@@ -14,7 +15,7 @@ namespace Toolbox
 
 			try
 			{
-				return string.Format(format, objects);
+				return string.Format(CultureInfo.InvariantCulture, format, objects);
 			}
 			catch (Exception e)
 			{
