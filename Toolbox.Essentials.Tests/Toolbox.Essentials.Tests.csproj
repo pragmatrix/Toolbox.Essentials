@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{80C903AF-5F58-4FD7-87C8-CD85CAB4115B}</ProjectGuid>
+    <ProjectGuid>{075F1875-4423-4D11-9AC4-710BB48FBA18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Toolbox</RootNamespace>
-    <AssemblyName>Toolbox.Essentials</AssemblyName>
+    <RootNamespace>Toolbox.Essentials.Tests</RootNamespace>
+    <AssemblyName>Toolbox.Essentials.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,35 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\Closure.cs" />
-    <Compile Include="Algorithms\Incremental.cs" />
-    <Compile Include="Algorithms\MovingAverage.cs" />
-    <Compile Include="Algorithms\TopologicalSort.cs" />
-    <Compile Include="Collections\DictionaryListExtensions.cs" />
-    <Compile Include="Collections\Memoizer.cs" />
-    <Compile Include="Context.cs" />
-    <Compile Include="DisposeAction.cs" />
-    <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="InternalError.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="Logging\LogContext.cs" />
-    <Compile Include="Materialization.cs" />
-    <Compile Include="Maybe.cs" />
-    <Compile Include="MemoBase.cs" />
-    <Compile Include="Pair.cs" />
-    <Compile Include="Parsing\RegexParser.cs" />
+    <Compile Include="SubsequenceTests.cs" />
+    <Compile Include="ParsingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shell\Browser.cs" />
-    <Compile Include="Shell\ExecuteEx.cs" />
-    <Compile Include="Shell\GetFileInfo.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="Two.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="README.md" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Toolbox.Essentials.csproj">
+      <Project>{80c903af-5f58-4fd7-87c8-cd85cab4115b}</Project>
+      <Name>Toolbox.Essentials</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
