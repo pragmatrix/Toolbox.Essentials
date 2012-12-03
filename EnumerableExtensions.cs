@@ -281,5 +281,31 @@ namespace Toolbox
 			var lefthash = new HashSet<ElementT>(left);
 			return lefthash.SetEquals(right);
 		}
+
+		public static int? findSubsequenceIndex<ElementT>(this IEnumerable<ElementT> seq, IEnumerable<ElementT> sequence)
+		{
+			var source = seq.ToArray();
+
+			var target = sequence.GetEnumerator();
+			var scanIndex = 0;
+
+			for (int i = 0; i != source.Length; ++i)
+			{
+				var current = source[i];
+				if (!target.MoveNext())
+					return scanIndex;
+
+				if (!current.Equals(target.Current))
+				{
+					target = sequence.GetEnumerator();
+					i = scanIndex++;
+				}
+			}
+
+			if (!target.MoveNext())
+				return scanIndex;
+
+			return null;
+		}
 	}
 }
