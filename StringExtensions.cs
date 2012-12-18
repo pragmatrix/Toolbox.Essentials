@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace Toolbox
@@ -49,6 +50,11 @@ namespace Toolbox
 				return l + r;
 
 			return l + ", " + r;
+		}
+
+		public static string join(this IEnumerable<string> strings, string separator)
+		{
+			return string.Join(separator, strings);
 		}
 	}
 }
