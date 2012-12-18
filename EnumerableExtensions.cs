@@ -307,5 +307,26 @@ namespace Toolbox
 
 			return null;
 		}
+
+		#region Lispish
+
+		public static IEnumerable<ElementT> cons<ElementT>(this ElementT head, IEnumerable<ElementT> tail)
+		{
+			yield return head;
+			foreach (var t in tail)
+				yield return t;
+		}
+
+		public static ElementT car<ElementT>(this IEnumerable<ElementT> sequence)
+		{
+			return sequence.First();
+		}
+
+		public static IEnumerable<ElementT> cdr<ElementT>(this IEnumerable<ElementT> sequence)
+		{
+			return sequence.Skip(1);
+		}
+
+		#endregion
 	}
 }
