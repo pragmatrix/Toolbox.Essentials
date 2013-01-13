@@ -5,7 +5,7 @@ namespace Toolbox
 {
 	public static class TaskExtensions
 	{
-		public static void WaitCompletedOrCancelled(this Task task)
+		public static void waitCompletedOrCancelled(this Task task)
 		{
 			try
 			{
