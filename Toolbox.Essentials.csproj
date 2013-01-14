@@ -50,6 +50,7 @@
     <Compile Include="DisposeAction.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="InternalError.cs" />
+    <Compile Include="Invariant.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Logging\LogContext.cs" />
     <Compile Include="Materialization.cs" />
