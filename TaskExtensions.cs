@@ -20,14 +20,14 @@ namespace Toolbox
 		}
 
 		/*
-			Create a Task cancellation source that is cancelled when the token is cancelled.
-			If the Source is cancelled, the token's state is untouched.
+			Create a cancellation token source that is cancelled when the token is cancelled.
+			If the source is cancelled, the token's state is untouched.
 		*/
 
 		public static CancellationTokenSource createLinkedSource(this CancellationToken token)
 		{
 			var source = new CancellationTokenSource();
-			// If this token is already in the canceled state, the delegate will be run 
+			// If the token is already in the canceled state, the delegate will be run 
 			// immediately and synchronously.
 			token.Register(source.Cancel);
 			return source;
