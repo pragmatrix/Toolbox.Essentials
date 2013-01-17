@@ -44,6 +44,7 @@
     <Compile Include="Algorithms\Incremental.cs" />
     <Compile Include="Algorithms\MovingAverage.cs" />
     <Compile Include="Algorithms\TopologicalSort.cs" />
+    <Compile Include="Casts.cs" />
     <Compile Include="Collections\DictionaryListExtensions.cs" />
     <Compile Include="Collections\Memoizer.cs" />
     <Compile Include="Context.cs" />
