@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Toolbox
 {
 	public static class TaskExtensions
 	{
-		public static void WaitCompletedOrCancelled(this Task task)
+		public static void waitCompletedOrCancelled(this Task task)
 		{
 			try
 			{
@@ -16,6 +17,25 @@ namespace Toolbox
 				if (task.IsFaulted)
 					throw;
 			}
+		}
+
+		/*
+			Create a cancellation token source that is cancelled when the token is cancelled.
+			If the source is cancelled, the token's state is untouched.
+		*/
+
+		public static CancellationTokenSource createLinkedSource(this CancellationToken token)
+		{
+			var source = new CancellationTokenSource();
+			// If the token is already in the canceled state, the delegate will be run 
+			// immediately and synchronously.
+			token.Register(source.Cancel);
+			return source;
+		}
+
+		public static CancellationToken createLinkedToken(this CancellationToken token)
+		{
+			return token.createLinkedSource().Token;
 		}
 	}
 }

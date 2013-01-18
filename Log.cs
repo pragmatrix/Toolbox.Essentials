@@ -374,7 +374,7 @@ namespace Toolbox
 		}
 #endif
 
-		static void debugWriteLines(string prefix, string[] lines)
+		public static void debugWriteLines(string prefix, string[] lines)
 		{
 			if (prefix != string.Empty)
 				prefix += ": ";
@@ -384,7 +384,7 @@ namespace Toolbox
 		}
 
 #if false
-		static void consoleWriteLines(string prefix, string[] lines)
+		public static void consoleWriteLines(string prefix, string[] lines)
 		{
 			if (prefix != string.Empty)
 				prefix += ": ";
